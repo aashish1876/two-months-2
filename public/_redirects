@@ -1,0 +1,4 @@
+# SPA fallback - any unknown route should serve index.html.
+# (This site is a single-page app, so direct links to sub-paths still
+#  need to land on index.html for the React app to take over.)
+/*    /index.html   200

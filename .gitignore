@@ -1,0 +1,12 @@
+node_modules/
+build/
+# dist/ is intentionally tracked so GitHub Pages can serve the built bundle
+# directly from the main branch without needing a build action.
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.netlify/
+.claude/

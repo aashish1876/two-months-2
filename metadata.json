@@ -1,0 +1,6 @@
+{
+  "name": "Two Months",
+  "description": "A cinematic time capsule of three best friends documenting an unforgettable two-month chapter of their lives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
