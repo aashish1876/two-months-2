@@ -16,27 +16,27 @@ interface EditGroupPhotoModalProps {
 const PRESET_GROUP_PHOTOS = [
   {
     label: 'Golden Hour Laughing Trio',
-    url: '/assets/aistudio/maya-portrait-alt.jpg'
+    url: './assets/aistudio/maya-portrait-alt.jpg'
   },
   {
     label: 'Overlook Horizon Silhouette',
-    url: '/assets/aistudio/mem-1-pact.jpg'
+    url: './assets/aistudio/mem-1-pact.jpg'
   },
   {
     label: 'Beach Sunset Laughter',
-    url: '/assets/aistudio/mem-3-pier-jump.jpg'
+    url: './assets/aistudio/mem-3-pier-jump.jpg'
   },
   {
     label: 'Highway Road Trip Vintage',
-    url: '/assets/aistudio/mem-2-coastal-bend.jpg'
+    url: './assets/aistudio/mem-2-coastal-bend.jpg'
   },
   {
     label: 'Night City Lights Laugh',
-    url: '/assets/aistudio/maya-connected-2.jpg'
+    url: './assets/aistudio/maya-connected-2.jpg'
   },
   {
     label: 'Campfire Night Under Stars',
-    url: '/assets/aistudio/group-preset-mountain.jpg'
+    url: './assets/aistudio/group-preset-mountain.jpg'
   }
 ];
 
@@ -231,7 +231,7 @@ export const EditGroupPhotoModal: React.FC<EditGroupPhotoModalProps> = ({
               type="text"
               value={formData.groupPhotoUrl}
               onChange={(e) => setFormData({ ...formData, groupPhotoUrl: e.target.value })}
-              placeholder="/assets/aistudio/..."
+              placeholder="./assets/aistudio/..."
               className="w-full px-3.5 py-2 bg-black/50 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-white/50"
             />
           </div>

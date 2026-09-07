@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
       setIsPlaying(!existing.paused);
     } else {
       // Build the audio element here for the user-gesture play() call.
-      const a = new Audio('/nightchanges.mp3');
+      const a = new Audio('./nightchanges.mp3');
       a.loop = true;
       a.volume = 0.55;
       a.preload = 'auto';

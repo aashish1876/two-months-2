@@ -64,7 +64,7 @@ export const AddMemoryModal: React.FC<AddMemoryModalProps> = ({
       time: time || '3:30 PM',
       location: location || 'Secret Spot',
       type: isVideo ? 'video' : 'photo',
-      imageUrl: imageUrl || '/assets/aistudio/mem-1-pact.jpg',
+      imageUrl: imageUrl || './assets/aistudio/mem-1-pact.jpg',
       videoUrl: isVideo ? videoUrl : undefined,
       chapter,
       people: friends.map((f) => f.name),

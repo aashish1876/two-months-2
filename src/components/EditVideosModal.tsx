@@ -60,7 +60,7 @@ export const EditVideosModal: React.FC<EditVideosModalProps> = ({
       type: 'video',
       isVideo: true,
       videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-      imageUrl: '/assets/aistudio/mem-8-desert-stars.jpg',
+      imageUrl: './assets/aistudio/mem-8-desert-stars.jpg',
       duration: '0:30',
       aspect: 'landscape',
       chapter: 'THE BEGINNING',

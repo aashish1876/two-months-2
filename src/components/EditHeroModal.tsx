@@ -12,11 +12,11 @@ interface EditHeroModalProps {
 }
 
 const SAMPLE_HERO_BG = [
-  { label: 'Golden Hour Laughing', url: '/assets/aistudio/mem-1-pact.jpg' },
-  { label: 'Coastal Road Trip Highway', url: '/assets/aistudio/mem-2-coastal-bend.jpg' },
-  { label: 'Sunset Bonfire Beach', url: '/assets/aistudio/mem-3-pier-jump.jpg' },
-  { label: 'City Skyline Night Lights', url: '/assets/aistudio/mem-8-desert-stars.jpg' },
-  { label: 'Mountain Overlook Fog', url: '/assets/aistudio/mem-13-bonfire.jpg' }
+  { label: 'Golden Hour Laughing', url: './assets/aistudio/mem-1-pact.jpg' },
+  { label: 'Coastal Road Trip Highway', url: './assets/aistudio/mem-2-coastal-bend.jpg' },
+  { label: 'Sunset Bonfire Beach', url: './assets/aistudio/mem-3-pier-jump.jpg' },
+  { label: 'City Skyline Night Lights', url: './assets/aistudio/mem-8-desert-stars.jpg' },
+  { label: 'Mountain Overlook Fog', url: './assets/aistudio/mem-13-bonfire.jpg' }
 ];
 
 export const EditHeroModal: React.FC<EditHeroModalProps> = ({

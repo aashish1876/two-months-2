@@ -217,7 +217,7 @@ export const EditRandomStuffModal: React.FC<EditRandomStuffModalProps> = ({
                 <div className="flex flex-col sm:flex-row gap-4 items-center">
                   <div className="w-24 h-24 bg-neutral-900 border border-white/20 overflow-hidden flex-shrink-0">
                     <img
-                      src={currentSnippet.imageUrl || '/assets/aistudio/maya-portrait-alt.jpg'}
+                      src={currentSnippet.imageUrl || './assets/aistudio/maya-portrait-alt.jpg'}
                       alt="Polaroid preview"
                       className="w-full h-full object-cover"
                     />

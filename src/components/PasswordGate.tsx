@@ -29,7 +29,7 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ onUnlock }) => {
       return existing;
     }
 
-    const audio = new Audio('/nightchanges.mp3');
+    const audio = new Audio('./nightchanges.mp3');
     audio.loop = true;
     audio.volume = 0.55;
     audio.preload = 'auto';

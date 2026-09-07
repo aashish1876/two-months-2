@@ -16,19 +16,19 @@ interface EditFriendsModalProps {
 }
 
 const SAMPLE_PORTRAITS = [
-  { label: 'Sunset Silhouette', url: '/assets/aistudio/maya-portrait-alt.jpg' },
-  { label: 'Golden Hour Smile', url: '/assets/aistudio/leo-portrait.jpg' },
-  { label: 'Candid Laugh', url: '/assets/aistudio/maya-connected-2.jpg' },
-  { label: 'Overlook Gaze', url: '/assets/aistudio/julian-portrait.jpg' },
-  { label: '35mm Film Grain', url: '/assets/aistudio/maya-connected-3.jpg' },
-  { label: 'Night Neon Chill', url: '/assets/aistudio/julian-connected-3.jpg' },
+  { label: 'Sunset Silhouette', url: './assets/aistudio/maya-portrait-alt.jpg' },
+  { label: 'Golden Hour Smile', url: './assets/aistudio/leo-portrait.jpg' },
+  { label: 'Candid Laugh', url: './assets/aistudio/maya-connected-2.jpg' },
+  { label: 'Overlook Gaze', url: './assets/aistudio/julian-portrait.jpg' },
+  { label: '35mm Film Grain', url: './assets/aistudio/maya-connected-3.jpg' },
+  { label: 'Night Neon Chill', url: './assets/aistudio/julian-connected-3.jpg' },
 ];
 
 const SAMPLE_GROUP_PHOTOS = [
-  { label: 'Golden Hour Laughing Trio', url: '/assets/aistudio/maya-portrait-alt.jpg' },
-  { label: 'Overlook Horizon', url: '/assets/aistudio/mem-1-pact.jpg' },
-  { label: 'Beach Sunset Sitting', url: '/assets/aistudio/mem-3-pier-jump.jpg' },
-  { label: 'Road Trip Convertible', url: '/assets/aistudio/mem-2-coastal-bend.jpg' }
+  { label: 'Golden Hour Laughing Trio', url: './assets/aistudio/maya-portrait-alt.jpg' },
+  { label: 'Overlook Horizon', url: './assets/aistudio/mem-1-pact.jpg' },
+  { label: 'Beach Sunset Sitting', url: './assets/aistudio/mem-3-pier-jump.jpg' },
+  { label: 'Road Trip Convertible', url: './assets/aistudio/mem-2-coastal-bend.jpg' }
 ];
 
 export const EditFriendsModal: React.FC<EditFriendsModalProps> = ({
@@ -277,7 +277,7 @@ export const EditFriendsModal: React.FC<EditFriendsModalProps> = ({
                   type="text"
                   value={editableGroup.groupPhotoUrl}
                   onChange={(e) => updateGroupConfig('groupPhotoUrl', e.target.value)}
-                  placeholder="/assets/aistudio/..."
+                  placeholder="./assets/aistudio/..."
                   className="w-full px-3.5 py-2 bg-black/50 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-white/50"
                 />
               </div>
@@ -449,7 +449,7 @@ export const EditFriendsModal: React.FC<EditFriendsModalProps> = ({
                   type="text"
                   value={currentFriend.portrait}
                   onChange={(e) => updateCurrentFriend('portrait', e.target.value)}
-                  placeholder="/assets/aistudio/..."
+                  placeholder="./assets/aistudio/..."
                   className="w-full px-3.5 py-2 bg-black/50 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-white/50"
                 />
               </div>
