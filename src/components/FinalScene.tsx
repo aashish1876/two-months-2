@@ -20,7 +20,7 @@ export const FinalScene: React.FC<FinalSceneProps> = ({
         <motion.div
           initial={{ scale: 1.05 }}
           whileInView={{ scale: 1.15 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }} // Fixed: only animate once
           transition={{ duration: 20, ease: 'easeOut' }}
           className="w-full h-full"
         >

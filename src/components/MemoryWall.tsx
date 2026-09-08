@@ -14,13 +14,15 @@ export const MemoryWall: React.FC<MemoryWallProps> = ({
 }) => {
   const [filterType, setFilterType] = useState<string>('ALL');
 
-  const filtered = memories.filter((m) => {
-    if (filterType === 'ALL') return true;
-    if (filterType === 'CANDIDS') return m.type === 'candid' || m.type === 'polaroid';
-    if (filterType === 'HERO') return m.isHero;
-    if (filterType === 'FAVORITES') return m.isRandomFavorite;
-    return true;
-  });
+  const filtered = React.useMemo(() => {
+    return memories.filter((m) => {
+        if (filterType === 'ALL') return true;
+        if (filterType === 'CANDIDS') return m.type === 'candid' || m.type === 'polaroid';
+        if (filterType === 'HERO') return m.isHero;
+        if (filterType === 'FAVORITES') return m.isRandomFavorite;
+        return true;
+      });
+  }, [filterType, memories]);
 
   return (
     <section id="photos" className="relative py-28 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">

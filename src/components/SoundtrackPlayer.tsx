@@ -15,13 +15,7 @@ export const SoundtrackPlayer: React.FC<SoundtrackPlayerProps> = ({
   const [progress, setProgress] = useState(15);
 
   useEffect(() => {
-    let interval: number;
-    if (isPlaying) {
-      interval = window.setInterval(() => {
-        setProgress((prev) => (prev >= 100 ? 0 : prev + 1.2));
-      }, 400);
-    }
-    return () => clearInterval(interval);
+    // Interval removed: no longer updating unused progress state
   }, [isPlaying]);
 
   return (

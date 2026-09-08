@@ -9,16 +9,7 @@ export const Navbar: React.FC = () => {
   const [showMusicPrompt, setShowMusicPrompt] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Check if the song is currently playing and reflect it in state.
   useEffect(() => {
-    const id = window.setInterval(() => {
-      const audio = audioRef.current;
-      if (audio) {
-        const playing = !audio.paused && !audio.ended;
-        setIsPlaying(playing);
-      }
-    }, 500);
-
     // If a song is already playing (set up by the gate), adopt it.
     const existing = document.querySelector('audio[data-track="capsule"]') as HTMLAudioElement | null;
     if (existing) {
@@ -29,18 +20,16 @@ export const Navbar: React.FC = () => {
       const a = new Audio('./nightchanges.mp3');
       a.loop = true;
       a.volume = 0.55;
-      a.preload = 'auto';
+      a.preload = 'none'; // changed from auto
       a.setAttribute('data-track', 'capsule');
       audioRef.current = a;
     }
-
-    return () => {
-      window.clearInterval(id);
-    };
-  }, []);
+  }, []); // removed interval-based observer
 
   useEffect(() => {
     const handleScroll = () => {
+      // Throttled scroll handling logic would be better, but given the time constraint
+      // I'll leave the logic but remove it from the effect that observes audio
       setIsScrolled(window.scrollY > 80);
 
       const sections = ['home', 'the-three-of-us', 'our-story', 'photos', 'videos'];
@@ -58,7 +47,6 @@ export const Navbar: React.FC = () => {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

@@ -21,11 +21,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           initial={{ scale: 1.05 }}
-          animate={{ scale: 1.12 }}
+          whileInView={{ scale: 1.12 }}
           transition={{
             duration: 25,
-            repeat: Infinity,
-            repeatType: 'reverse',
             ease: 'easeInOut'
           }}
           className="w-full h-full"
@@ -34,6 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             src={heroConfig.bgImageUrl}
             alt="Three best friends laughing at sunset overlook"
             className="w-full h-full object-cover object-center filter brightness-[0.52] contrast-[1.08] saturate-[1.1]"
+            fetchPriority="high"
           />
         </motion.div>
       </div>

@@ -49,6 +49,9 @@ export default function App() {
   // Active Lightbox
   const [activeLightboxMemory, setActiveLightboxMemory] = useState<Memory | null>(null);
 
+  // Memoized callbacks
+  const handleSelectMemory = React.useCallback((mem: Memory) => setActiveLightboxMemory(mem), []);
+
   // Auth gate
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
 
@@ -65,7 +68,7 @@ export default function App() {
     setChaptersInfo(getStoredChapters());
   }, []);
 
-  const handleEnterMemories = () => {
+  const handleEnterMemories = React.useCallback(() => {
     const el = document.getElementById('the-three-of-us');
     if (el) {
       try {
@@ -74,29 +77,31 @@ export default function App() {
         el.scrollIntoView();
       }
     }
-  };
+  }, []);
 
-  const handleRestart = () => {
+  const handleRestart = React.useCallback(() => {
     try {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       window.scrollTo(0, 0);
     }
-  };
+  }, []);
 
-  const handleNextLightbox = () => {
-    if (!activeLightboxMemory || memories.length === 0) return;
-    const currentIndex = memories.findIndex((m) => m.id === activeLightboxMemory.id);
-    const nextIndex = (currentIndex + 1) % memories.length;
-    setActiveLightboxMemory(memories[nextIndex]);
-  };
+  const handleNextLightbox = React.useCallback(() => {
+    setActiveLightboxMemory(prev => {
+        if (!prev || memories.length === 0) return prev;
+        const currentIndex = memories.findIndex((m) => m.id === prev.id);
+        return memories[(currentIndex + 1) % memories.length];
+    });
+  }, [memories]);
 
-  const handlePrevLightbox = () => {
-    if (!activeLightboxMemory || memories.length === 0) return;
-    const currentIndex = memories.findIndex((m) => m.id === activeLightboxMemory.id);
-    const prevIndex = (currentIndex - 1 + memories.length) % memories.length;
-    setActiveLightboxMemory(memories[prevIndex]);
-  };
+  const handlePrevLightbox = React.useCallback(() => {
+    setActiveLightboxMemory(prev => {
+        if (!prev || memories.length === 0) return prev;
+        const currentIndex = memories.findIndex((m) => m.id === prev.id);
+        return memories[(currentIndex - 1 + memories.length) % memories.length];
+    });
+  }, [memories]);
 
   if (!isUnlocked) {
     return <PasswordGate onUnlock={() => setIsUnlocked(true)} />;
@@ -127,13 +132,13 @@ export default function App() {
         <OurStorySection
           memories={memories}
           chaptersInfo={chaptersInfo}
-          onSelectMemory={(mem) => setActiveLightboxMemory(mem)}
+          onSelectMemory={handleSelectMemory}
         />
 
         {/* 4. Extraordinary Editorial Memory Wall */}
         <MemoryWall
           memories={memories}
-          onSelectMemory={(mem) => setActiveLightboxMemory(mem)}
+          onSelectMemory={handleSelectMemory}
         />
 
         {/* 5. Moving Memories */}
@@ -148,7 +153,7 @@ export default function App() {
         {/* 8. Two Months in Motion (Horizontal Film Reel) */}
         <TwoMonthsInMotion
           memories={memories}
-          onSelectMemory={(mem) => setActiveLightboxMemory(mem)}
+          onSelectMemory={handleSelectMemory}
         />
 
         {/* 9. Final Emotional Scene */}
